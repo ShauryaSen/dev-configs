@@ -1,0 +1,8 @@
+config_home := "$HOME/.config/wezterm"
+pwd := absolute_path(".")
+
+default:
+	@just --list --unsorted
+setup:
+	mkdir -p {{config_home}}
+	ln -sf {{pwd}}/wezterm.lua {{config_home}}/wezterm.lua

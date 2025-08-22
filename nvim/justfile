@@ -1,0 +1,9 @@
+config_home := "$HOME/.config/nvim"
+pwd := absolute_path(".")
+
+default:
+  @just --list --unsorted
+
+setup:
+  mkdir -p {{config_home}}
+  ln -sf {{pwd}}/config/* {{config_home}}
