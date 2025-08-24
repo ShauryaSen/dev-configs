@@ -8,48 +8,10 @@ default:
   @just --list --unsorted
 
 # Create symlinks from $HOME to dotfiles in this repo
-create-symlinks:
-  echo "Creating symlinks from $HOME to dotfiles in this repo"
-  # zsh
-  mv -f "$HOME/.zshrc" "$HOME/.zshrc.bak"
-  ln -sf "{{PWD}}/{{DIR}}/.zshrc" "$HOME/.zshrc"
-
-  # bash
-  mv -f "$HOME/.bashrc" "$HOME/.bashrc.bak"
-  ln -sf "{{PWD}}/{{DIR}}/.bashrc" "$HOME/.bashrc"
-
-  # tmux
-  mv -f "$HOME/.tmux.conf" "$HOME/.tmux.conf.bak"
-  ln -sf "{{PWD}}/{{DIR}}/.tmux.conf" "$HOME/.tmux.conf"
-
-  # nushell
-  mv -f "$HOME/.config/nushell/config.nu" "$HOME/.config/nushell/config.nu.bak"
-  ln -sf "{{PWD}}/{{DIR}}/config.nu" "$HOME/.config/nushell/config.nu"
-
-  # jj
-  ln -sf "{{PWD}}/common/jj-config.toml" "$HOME/.config/jj/config.toml"
-
-  # git
-  mv -f "$HOME/.gitconfig" "$HOME/.gitconfig.bak"
-  ln -sf "{{PWD}}/{{DIR}}/.gitconfig" "$HOME/.gitconfig"
-  mv -f "$HOME/.gitignore_global" "$HOME/.gitignore_global.bak"
-  ln -sf "{{PWD}}/{{DIR}}/.gitignore_global" "$HOME/.gitignore_global"
-
-  # neovim
-  ln -sf "{{PWD}}/nvim" "$HOME/.config/nvim"
-
-  # tmux-powerline
-  ln -sf "{{PWD}}/{{DIR}}/tmux-powerline" "$HOME/.tmux/plugins"
-  ln -sf "{{PWD}}/{{DIR}}/tmux-powerline/config.sh" "$HOME/.config/tmux-powerline/config.sh"
-
-  # wezterm
-  mkdir -p ~/.config/wezterm
-  ln -sf "{{PWD}}/wez/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
-
-  # zellij
-  mkdir -p ~/.config/zellij
-  ln -sf "{{PWD}}/zellij/config.kdl" "$HOME/.config/zellij/config.kdl"
-
+setup:
+  just wez/setup
+  just zsh/setup
+  just nvim/setup
 
 # Install shell plugins
 [script("zsh")]
