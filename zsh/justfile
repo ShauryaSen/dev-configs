@@ -9,7 +9,7 @@ default:
 
 # Create symlinks, folders
 setup:
-  ln -sf {{PWD}}config "$HOME/.zshrc"
+  ln -sf {{PWD}}/config "$HOME/.zshrc"
 
 # Install ZSH plugins
 install-plugins: setup
