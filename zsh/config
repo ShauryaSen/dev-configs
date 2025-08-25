@@ -8,9 +8,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gnzh"
+ZSH_THEME="spaceship"
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,3 +103,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# ---- Spaceship: minimal, practical prompt ----
+
+# ---------- Spaceship: minimal & tasteful ----------
+# Keep it short; only helpful bits appear when relevant
+SPACESHIP_GIT_SHOW=false
+SPACESHIP_EXEC_TIME_SHOW=false
+
+# Only show user/host when it matters
+SPACESHIP_USER_SHOW=never
+SPACESHIP_HOST_SHOW=ssh
+# If you use GNU ls or `eza`, prefer a proper theme file instead (can set later).
+source /opt/homebrew/opt/spaceship/spaceship.zsh
