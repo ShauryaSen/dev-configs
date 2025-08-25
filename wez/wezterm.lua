@@ -1,9 +1,13 @@
 local wezterm = require("wezterm")
-local config = {}
+local config = wezterm.config_builder()
+config.color_scheme = "Catppuccin Macchiato" -- or Macchiato, Frappe, Latte
 
-config.color_scheme = "Ayu Mirage"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 19
-config.term = "xterm-256color"
-config.window_decorations = "TITLE | RESIZE"
+config.enable_tab_bar = false
+config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 10
+
+-- and finally, return the configuration to wezterm
 return config
