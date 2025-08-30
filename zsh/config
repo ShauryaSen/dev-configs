@@ -72,7 +72,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
+alias rv='docker run -i --init -e NETID=sps252 --rm -v "$PWD":/root ghcr.io/sampsyo/cs3410-infra'
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
